@@ -1,0 +1,25 @@
+#!/bin/bash
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+jboss_version="$1"
+old_cart_version="$2"
+new_cart_version="$3"
+
+OSE_20_LATEST="0.0.9"
+OSE_21_GA="0.0.15"
+
+# Needed for version 0.0.1 -> 0.1.11 during the 2.0.z lifetime.  This can
+# safely be removed after 2.2.
+if version_lt $old_cart_version $OSE_20_LATEST; then
+  if [ -e $OPENSHIFT_HOMEDIR/jbossews/metadata/jenkins_shell_command ]; then
+    rm -f $OPENSHIFT_HOMEDIR/jbossews/metadata/jenkins_shell_command
+  fi
+fi
+
+# Needed for upgrade from versions [0.0.1-0.0.11].  This can be removed after the upgrade has been deployed
+if version_lt $old_cart_version $OSE_21_GA; then
+  if [ -d $OPENSHIFT_HOMEDIR/jbossews/versions ]; then
+    rm -rf $OPENSHIFT_HOMEDIR/jbossews/versions
+  fi
+fi

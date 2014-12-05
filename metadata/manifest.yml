@@ -86,6 +86,6 @@ Version-Overrides:
     - tomcat6
     - web_framework
     
-    Install-Build-Required: false
-    Source-Url: git://github.com/yyuanyuan/jbossews_test.git
+Install-Build-Required: false
+Source-Url: git://github.com/yyuanyuan/jbossews_test.git
     #Source-Url: file:///root/mysql22/

@@ -87,5 +87,5 @@ Version-Overrides:
     - web_framework
     
     Install-Build-Required: false
-    Source-Url: git@github.com:yyuanyuan/jbossews_test.git
+    Source-Url: git://github.com/yyuanyuan/jbossews_test.git
     #Source-Url: file:///root/mysql22/
